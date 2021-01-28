@@ -1,0 +1,58 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: dfcf9b3b014e83ebd26c42569842c078b18a01b07c86a38b64469ba2f0ddb1de
+
+name:           polysemy-acquire
+version:        0.0.0.1
+description:    Please see the README on GitHub at <https://github.com/githubuser/polysemy-acquire#readme>
+homepage:       https://github.com/googleson78/polysemy-acquire#readme
+bug-reports:    https://github.com/googleson78/polysemy-acquire/issues
+author:         Georgi Lyubenov
+maintainer:     godzbanebane@gmail.com
+copyright:      2021 Georgi Lyubenov
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/googleson78/polysemy-acquire
+
+library
+  exposed-modules:
+      Polysemy.Acquire
+  other-modules:
+      Paths_polysemy_acquire
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -fplugin=Polysemy.Plugin
+  build-depends:
+      base >=4.7 && <5
+    , polysemy
+    , polysemy-plugin
+    , resourcet
+  default-language: Haskell2010
+
+test-suite polysemy-acquire-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Polysemy.AcquireSpec
+      Paths_polysemy_acquire
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -fplugin=Polysemy.Plugin -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , polysemy
+    , polysemy-acquire
+    , polysemy-plugin
+    , resourcet
+  default-language: Haskell2010
